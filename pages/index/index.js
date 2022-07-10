@@ -10,6 +10,8 @@ Page({
     banners: [],
     //推荐歌曲
     recommendList: [],
+    //排行榜
+    topList: [],
   },
 
   /**
@@ -33,6 +35,44 @@ Page({
     this.setData({
       recommendList: result.result || [],
     });
+    //获取排行榜数据
+    result = await request("/toplist");
+    result = result.list.slice(0,5);//只取前五个
+    //临时存放top排行榜
+    let tempTopList = [];
+    //获取基本的信息
+    result.forEach(item=>{
+      tempTopList.push({
+        //榜单名称
+        name:item.name,
+        //榜单id
+        id:item.id,
+      });
+    });
+    result = tempTopList;
+    //请求获取每一项目榜单的歌曲列表
+    let index = 0;
+    result.forEach(async (item)=>{
+      let res = await request("/playlist/detail",{id:item.id});//请求获取对应榜单id的歌曲信息
+      res = res.playlist.tracks.slice(0,3);//每次循环取对应榜单前三首歌曲信息
+      //数据提取
+      let tempSongList = [];
+      res.forEach((songItem)=>{
+          //每首歌曲提取的信息
+          let dataInfo = {
+            name:songItem.name,//歌名
+            id:songItem.id,//歌名id
+            cover:songItem.al.picUrl,//图片封面
+            author:songItem.ar[0].name,//作者
+            album:songItem.al.name,//专辑
+          };
+          tempSongList.push(dataInfo);
+      });
+      result[index++].list = tempSongList;
+      this.setData({
+        topList:result,
+      });
+    })
   },
 
   /**

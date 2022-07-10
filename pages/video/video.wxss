@@ -1,0 +1,38 @@
+/* pages/video/video.wxss */
+.video-header {
+  display: flex;
+  padding: 10rpx;
+}
+.video-header .search{
+  flex: 1;
+  border: 1rpx solid rgb(167, 159, 159);
+  margin: 0 20rpx; 
+  line-height: 60rpx; 
+  font-size: 29rpx;
+  padding: 0 10rpx;
+  color: #d95343;
+  text-align: center;
+}
+.video-header .pic{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.nav-tab{
+  display: flex;
+  white-space: nowrap;
+  margin-top: 15rpx;
+  /* flex-wrap: nowrap; */
+}
+.nav-tab .nav {
+  padding: 0 10rpx;
+  margin: 0 10rpx;
+  height: 60rpx;
+}
+.nav-tab .nav .nav-item{
+  padding-bottom: 7rpx;
+  font-size: 28rpx;
+}
+.nav-tab .nav .nav-item.active{
+  border-bottom: 1rpx solid #ee5d44;
+}

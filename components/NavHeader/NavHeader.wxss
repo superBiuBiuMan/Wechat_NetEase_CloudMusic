@@ -1,0 +1,19 @@
+/* components/NavHeader/NavHeader.wxss */
+ .header .title {
+  color: gray;
+}
+
+.nav {
+  margin-top: 15rpx;
+}
+
+ .more {
+  float: right;
+  box-sizing: border-box;
+  padding: 8rpx;
+  border: 1rpx solid black;
+  border-radius: 30rpx;
+  font-size: 25rpx;
+  /* 保持下平行 */
+  margin-top: -7rpx;
+}
