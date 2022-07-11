@@ -2,32 +2,45 @@
 .songDetailContainer {
   height: 100%;
   /* 渐变色背景 */
-  background-image: linear-gradient(to right,#8d8d8d, #2f3535);
+  background-image: linear-gradient(to right, #8d8d8d, #2f3535);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.author{
+
+.author {
   text-align: center;
 }
+
 /* 底座 */
-.circle-needle{
+.circle-needle {
   position: relative;
-  width: 60rpx;
-  height: 60rpx;
+  width: 70rpx;
+  height: 70rpx;
   border-radius: 50%;
   background-color: #fff;
   /* 覆盖唱针的尾部 */
   z-index: 99;
 }
-.needle{
+
+.needle {
   position: relative;
   z-index: 10;
   top: -40rpx;
-  left: 60rpx;
+  left: 50rpx;
   width: 192rpx;
   height: 274rpx;
+  /* 设置源点的位置 */
+  transform-origin: 40rpx 0;
+  transition: transform 1s;
+  transform: rotate(-20deg);
 }
+
+/* 唱针在唱片上的时候 */
+.needle-circle {
+  transform: rotate(0);
+}
+
 /* 磁盘 */
 .disc-wrapper {
   position: relative;
@@ -35,12 +48,32 @@
   width: 598rpx;
   height: 598rpx;
 }
-.disc-wrapper .disc{
+
+/* 唱片旋转 */
+.disc-circle {
+  animation: circle 4s linear infinite;
+  /* 延迟1秒,等待唱针到达 */
+  animation-delay: 1s;
+}
+
+/* 旋转360度 */
+@keyframes circle {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.disc-wrapper .disc {
   width: 100%;
   height: 100%;
   position: relative;
 }
-.disc-wrapper .song-pic{
+
+.disc-wrapper .song-pic {
   position: absolute;
   /* 垂直水平居中 */
   left: 0;
@@ -51,4 +84,28 @@
   width: 370rpx;
   height: 370rpx;
   border-radius: 50%;
+}
+
+/* 底部控制区域 */
+.musicControl {
+  position: absolute;
+  bottom: 40rpx;
+  left: 0;
+  border-top: 1rpx solid #fff;
+  width: 100%;
+  display: flex;
+
+}
+
+.musicControl .iconfont {
+  width: 20%;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: center;
+  color: #fff;
+  font-size: 50rpx;
+}
+
+.musicControl .iconfont.big {
+  font-size: 80rpx;
 }

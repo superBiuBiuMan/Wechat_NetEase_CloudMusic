@@ -4,13 +4,28 @@
   <view class="author">我是作者</view>
   <!-- 底座 -->
   <view class="circle-needle"></view>
-  <!-- 唱针 -->
-  <image class="needle" src="/static/images/song/needle.png"></image>
+  <!-- 唱针 {{isPlay?'needle-circle':''}}-->
+  <image class="needle {{isPlay?'needle-circle':''}}" src="/static/images/song/needle.png"></image>
   <!-- 唱片和歌曲头像 -->
-  <view class="disc-wrapper">
+  <view class="disc-wrapper {{isPlay?'disc-circle':''}}">
     <!-- 唱片  -->
     <image class="disc" src="/static/images/song/disc.png"></image>
     <!-- 歌曲图片 -->
     <image class="song-pic" src="/static/images/nvsheng.jpg"></image>
+  </view>
+
+
+  <!-- 底部控制播放区域 -->
+  <view class="musicControl">
+    <!-- 播放顺序 -->
+    <text class="iconfont icon-icon-"></text>
+    <!-- 上一首 -->
+    <text class="iconfont icon-48shangyishou" ></text>
+    <!-- 播放/暂停 -->
+    <text class="iconfont {{isPlay?'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay" ></text>
+    <!-- 下一首 -->
+    <text class="iconfont icon-49xiayishou" ></text>
+    <!-- 播放列表 -->
+    <text class="iconfont icon-24gf-playlistMusic4"></text>
   </view>
 </view>

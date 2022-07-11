@@ -5,9 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    // 是否处于播放状态
+    isPlay:false,
   },
-
+  //单击播放/暂停的回调
+  handleMusicPlay(){
+    //播放状态取反
+    let isPlay = !this.data.isPlay;
+    this.setData({
+      isPlay,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
