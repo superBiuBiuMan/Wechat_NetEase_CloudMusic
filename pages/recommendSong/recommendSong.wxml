@@ -1,0 +1,33 @@
+<view class="recommentSongContainer">
+  <!-- 头部 -->
+  <view class="recomment-header">
+    <!-- 图片部分 -->
+    <image class="header-bg" src="/static/images/recommendSong/recommendSongBg.jpg"></image>
+    <!-- 日期部分 -->
+    <view class="date-container">
+      <view class="date">今天是{{month}}月{{day}}日</view>
+    </view>
+  </view>
+  <!-- 歌曲 -->
+  <scroll-view class="song-list" enable-flex scroll-y>
+    <view class="title">
+      <text class="title-left">播放全部</text>
+      <text class="title-right">多选</text>
+    </view>
+    <view class="song-item" wx:for="{{recommendList}}" wx:key="id">
+      <!-- 歌曲图片 -->
+      <image class="song-pic" src="{{item.al.picUrl}}" ></image>
+      <!-- 歌曲信息 -->
+      <view class="song-info">
+        <view class="song-title">{{item.name}}</view>
+        <view class="song-author">
+          {{item.ar[0].name}}
+        </view>
+        <button open-type="share" class="btn">
+            <text class="iconfont icon-gengduo-shuxiang"></text>
+        </button>
+      </view>
+    </view>
+
+  </scroll-view>
+</view>

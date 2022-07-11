@@ -1,3 +1,7 @@
 /* 公共样式 */
 /* 图标字体 */
-@import "/static/iconfont/iconfont.wxss"
+@import "/static/iconfont/iconfont.wxss";
+page{
+  width: 100%;
+  height: 100%;
+}

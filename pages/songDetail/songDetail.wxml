@@ -1,0 +1,16 @@
+<!--pages/songDetail/songDetail.wxml-->
+<view class="songDetailContainer">
+  <!-- 作者名 -->
+  <view class="author">我是作者</view>
+  <!-- 底座 -->
+  <view class="circle-needle"></view>
+  <!-- 唱针 -->
+  <image class="needle" src="/static/images/song/needle.png"></image>
+  <!-- 唱片和歌曲头像 -->
+  <view class="disc-wrapper">
+    <!-- 唱片  -->
+    <image class="disc" src="/static/images/song/disc.png"></image>
+    <!-- 歌曲图片 -->
+    <image class="song-pic" src="/static/images/nvsheng.jpg"></image>
+  </view>
+</view>

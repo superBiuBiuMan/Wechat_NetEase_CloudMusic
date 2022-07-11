@@ -1,0 +1,90 @@
+
+/*头部样式*/
+.recomment-header{
+  width: 100%;
+  height: 400rpx;
+  position: relative;
+}
+.recomment-header .header-bg{
+  width: 100%;
+  height: 100%;
+}
+/* 展示文字部分 */
+.recomment-header .date-container{
+  position: absolute;
+  width: 300rpx;
+  height: 200rpx;
+  /* background-color: red; */
+  /* 居中 */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  line-height:200rpx;
+  color: #eee;
+  font-weight: bold;
+  font-size: 40rpx;
+}
+
+.recomment-header  .daily{
+  position: absolute;
+}
+
+.song-list {
+  position: relative;
+  top: -10rpx;
+  padding: 8rpx 20rpx;
+  box-sizing: border-box;
+  border-radius: 30rpx;
+  box-shadow: 0 0 1rpx 1rpx rgba(148, 145, 145, 0.1);
+  background-color: #fff;
+}
+/* 播放全部/多选的样式 */
+.song-list .title{
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+}
+.song-list .title .title-left{
+  float: left;
+  padding: 10rpx;
+}
+.song-list .title .title-right{
+  float: right;
+  padding: 10rpx;
+}
+
+.song-list .song-item{
+  position: relative;
+  height: 80rpx;
+  display: flex;
+  width: 100%;
+  margin-bottom: 10rpx;
+  box-shadow: 0 6rpx 1px rgba(204, 203, 203, 0.1);
+}
+/* 每一项item的图片 */
+.song-list .song-item .song-pic{
+  height: 80rpx;
+  width: 80rpx; 
+  border-radius: 10rpx;
+  flex-shrink: 0;
+}
+.song-list .song-item .song-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 28rpx;
+  margin-left: 20rpx;
+}
+.song-list .song-item .song-info .btn{
+  position: absolute;
+  right: 0;
+  display: inline;
+  background-color: transparent;
+  border-color: transparent;
+}
+.song-list .song-item .song-info .btn:after{
+  border: none;
+}

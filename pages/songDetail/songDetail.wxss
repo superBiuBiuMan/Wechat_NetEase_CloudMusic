@@ -1,0 +1,54 @@
+/* pages/songDetail/songDetail.wxss */
+.songDetailContainer {
+  height: 100%;
+  /* 渐变色背景 */
+  background-image: linear-gradient(to right,#8d8d8d, #2f3535);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.author{
+  text-align: center;
+}
+/* 底座 */
+.circle-needle{
+  position: relative;
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  /* 覆盖唱针的尾部 */
+  z-index: 99;
+}
+.needle{
+  position: relative;
+  z-index: 10;
+  top: -40rpx;
+  left: 60rpx;
+  width: 192rpx;
+  height: 274rpx;
+}
+/* 磁盘 */
+.disc-wrapper {
+  position: relative;
+  top: -170rpx;
+  width: 598rpx;
+  height: 598rpx;
+}
+.disc-wrapper .disc{
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.disc-wrapper .song-pic{
+  position: absolute;
+  /* 垂直水平居中 */
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 370rpx;
+  height: 370rpx;
+  border-radius: 50%;
+}
