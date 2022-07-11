@@ -25,8 +25,11 @@
         poster="{{item.data.coverUrl}}"
         id="{{item.data.vid}}"
         wx:if="{{vid === item.data.vid}}"
+        bindplay="handlePlay"
+        bindtimeupdate="handleUpdatePlay"
+        bindended="handleEndPlay"
         ></video>
-      
+      <!-- 图片预览,先显示图片,如果用户单击图片,则切换到视频 -->
       <image class="common" wx:else src="{{item.data.coverUrl}}"  id="{{item.data.vid}}" bindtap="handlePlay"></image>
      
       <!-- 视频介绍 -->
