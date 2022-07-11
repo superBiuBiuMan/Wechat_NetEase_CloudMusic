@@ -22,6 +22,7 @@
   display: flex;
   white-space: nowrap;
   margin-top: 15rpx;
+  height: 60rpx;
   /* flex-wrap: nowrap; */
 }
 .nav-tab .nav {
@@ -35,4 +36,67 @@
 }
 .nav-tab .nav .nav-item.active{
   border-bottom: 1rpx solid #ee5d44;
+}
+.vidoe-scroll .video-item {
+  padding: 0 2%;
+}
+.vidoe-scroll .video-item .common{
+  width: 100%;
+  height: 360rpx;
+  border-radius: 10rpx;
+}
+
+/* 脚部和内容区 */
+
+.video-item .content {
+  font-size: 26rpx;
+  height:80rpx;
+  line-height: 80rpx;
+  /* max-width: 500rpx; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+/* footer */
+.footer {
+  border-top: 1rpx solid #eee;
+  padding: 20rpx 10rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.footer .avatar {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+
+.footer  .nickName {
+  font-size: 26rpx;
+  vertical-align: middle;
+  margin-left: 20rpx;
+}
+
+.comments_praised .btn {
+  display: inline;
+  padding: 0;
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.comments_praised .btn:after {
+  border: none;
+}
+
+.comments_praised .item {
+  margin-left: 50rpx;
+  position: relative;
+}
+
+.comments_praised .item .count {
+  position: absolute;
+  top: -20rpx;
+  font-size: 20rpx;
 }

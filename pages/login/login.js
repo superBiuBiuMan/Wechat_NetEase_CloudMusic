@@ -71,7 +71,8 @@ Page({
     //4.发送登录请求
     let result = await request("/login/cellphone", {
       phone,
-      md5_password: this.data.md5_password
+      md5_password: this.data.md5_password,
+      isLogin:true,
     });
     //5.比较返回登录状态,做出对应操作
     if (result.code === 200) {
