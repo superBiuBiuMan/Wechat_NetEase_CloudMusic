@@ -14,10 +14,16 @@
         {{item.name}}
       </view>
     </view>
-    
   </scroll-view>
   <!-- 视频内容展示 -->
-  <scroll-view  scroll-y class="vidoe-scroll">
+  <scroll-view
+  class="video-scroll"
+  scroll-y
+  refresher-enabled
+  bindrefresherrefresh="handleRefresh"
+  bindscrolltolower="handleMore"
+  refresher-triggered="{{isRefresher}}"
+  >
     <view class="video-item" wx:for="{{videoList}}" wx:key="id">
       <video class="common"
         object-fit="cover"
