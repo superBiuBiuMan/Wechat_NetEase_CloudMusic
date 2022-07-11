@@ -8,8 +8,8 @@
     <image class="pic" src="/static/images/logo.png"></image>
   </view>
   <!-- tab条 -->
-  <scroll-view class="nav-tab" enable-flex scroll-x>
-    <view class="nav" wx:for="{{navList}}" wx:key="id">
+  <scroll-view class="nav-tab" enable-flex scroll-x scroll-into-view="{{'scroll'+selectedId}}" scroll-with-animation>
+    <view class="nav" wx:for="{{navList}}" wx:key="id" id="{{'scroll'+item.id}}">
       <view class="nav-item {{selectedId==item.id?'active':''}}" bindtap="changNavTab" id="{{item.id}}" >
         {{item.name}}
       </view>
@@ -22,8 +22,7 @@
   refresher-enabled
   bindrefresherrefresh="handleRefresh"
   bindscrolltolower="handleMore"
-  refresher-triggered="{{isRefresher}}"
-  >
+  refresher-triggered="{{isRefresher}}">
     <view class="video-item" wx:for="{{videoList}}" wx:key="id">
       <video class="common"
         object-fit="cover"
