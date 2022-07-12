@@ -17,6 +17,15 @@ Page({
     currentTime:"00:00",//当前播放的时间
     durationTime:"00:00",//总播放时间
     currentWidth:0,//当前进度条的长度
+    durationMilliTime:0,//总播放毫秒数
+    //测试
+    startX:0,
+    endX:0,
+    //计算后的小圆点坐标
+    circlePosition:0,
+    //bar-control的宽度,用于后期滚动条滚动条位置的判断,获取的单位为px
+    barControlWidth:0,
+    isDrag:false,//是否处于拖拽小圆点的情况
   },
  
   /**
@@ -34,6 +43,68 @@ Page({
     this.createMusicManager();
     //添加订阅,控制歌曲信息
     PubSub.subscribe("updateSong",this.updateSong);
+    //获取查询对象,为了查询节点信息的对象
+    this.queryObj = wx.createSelectorQuery().select(".bar-control").boundingClientRect((res)=>{
+      //获bar-control的宽度,用于后期滚动条滚动条位置的判断
+      this.setData({
+        barControlWidth:res.width,
+      })
+    }).exec();
+  },
+  //触摸开始
+  touchStart(event){
+    // console.log("触摸开始",event);
+    let {startX} = this.data;
+    if(!startX){
+      //只记录初始值,否者移动会出现问题
+      startX = event.touches[0].clientX;
+      this.setData({
+        startX
+      });
+    }
+    //设置小圆点为拖拽的情况
+    this.setData({
+      isDrag:true,
+    })
+  },
+  //触摸移动
+  touchMove(event){
+    // console.log("触摸移动",event);
+    //记录位置和小圆点可移动的范围宽度
+    let {endX,barControlWidth,durationMilliTime} = this.data;
+    endX = event.touches[0].clientX;
+    //计算小圆球位置
+    let circlePosition = endX - this.data.startX;
+    //判断是否是合法的值 这里以px来计算
+    if(circlePosition < 0){
+      circlePosition = 0;
+    }
+    //判断是否是合法的值 类.bar-control 的宽度(px为单位)
+    if(circlePosition > barControlWidth){
+      circlePosition = barControlWidth;
+    }
+    //时间变化
+    let nowPlayTime = (circlePosition / barControlWidth) * durationMilliTime;//计算后的毫秒数
+    //格式化时间
+    let currentTime = moment(nowPlayTime).format("mm:ss");
+    this.setData({
+      endX,
+      circlePosition,
+      currentTime,
+      currentWidth:circlePosition,
+    });
+  },
+  //触摸结束
+  touchEnd(event){
+    // console.log("触摸结束",event);
+    let {circlePosition,barControlWidth,durationMilliTime} = this.data;
+    //调整音乐位置
+    let nowPlayTime = (circlePosition / barControlWidth) * durationMilliTime;//计算后的毫秒数
+    this.musicManager.seek(nowPlayTime/1000);
+    //取消小圆点拖拽行为
+    this.setData({
+      isDrag:false,
+    })
   },
    //单击播放/暂停的回调
   handleMusicPlay(){
@@ -115,14 +186,22 @@ Page({
     this.musicManager.onTimeUpdate(()=>{
       // console.log("当前音频播放位置",this.musicManager.currentTime);//返回秒
       // console.log("总时长",this.musicManager.duration);//返回秒
+      if(this.data.isDrag){
+        //如果圆点处于拖拽,则不变更时间
+        return;
+      }
       //格式化播放时间
       let currentTime = moment(this.musicManager.currentTime * 1000 ).format("mm:ss");
       //计算进度线条的长度 ,取.process-control .bar-control的宽度
-      let currentWidth = (this.musicManager.currentTime/this.musicManager.duration)*450;
-      //更新显示时间
+      //不同机型不是2倍的关系
+      // let barControlWidthRpx = this.data.barControlWidth * 2;
+      //检测 barControlWidthRpx 没有问题,
+      let currentWidth = (this.musicManager.currentTime/this.musicManager.duration)*this.data.barControlWidth;
+      //更新显示时间和宽度和小圆点位置
       this.setData({
         currentTime,
         currentWidth,
+        circlePosition:currentWidth,
       })
     });
     /* 音乐自然播放结束的回调 */
@@ -134,17 +213,22 @@ Page({
         currentTime:"00:00",//当前播放的时间
         durationTime:"00:00",//总播放时间
         currentWidth:0,//当前进度条的长度
+        startX:0,
+        endX:0,
+        //计算后的小圆点坐标
+        circlePosition:0,
       })
     });
   },
   //发送请求获取指定id歌曲的详细信息并设置窗口标题
   async reqSongDetail(ids){
     let result = await request("/song/detail",{ids});
-    let durationTime = result.songs[0].dt;//返回歌曲播放时长,单位为毫秒数
-    durationTime = moment(durationTime).format("mm:ss");//格式化时间
+    let durationMilliTime = result.songs[0].dt;//返回歌曲播放时长,单位为毫秒数
+    let durationTime = moment(durationMilliTime).format("mm:ss");//格式化时间
     this.setData({
       songInfo:result.songs[0],
       durationTime,
+      durationMilliTime,
     });
     //设置窗口标题
     wx.setNavigationBarTitle({

@@ -20,7 +20,12 @@ Page({
   onLoad(options) {
     this.init();
   },
-
+  //跳转到每日推荐
+  toRecommendPage(){
+    wx.navigateTo({
+      url: '/pages/recommendSong/recommendSong',
+    })
+  },
   // 初始化调用
   async init() {
     //获取首页轮播图数据

@@ -19,9 +19,9 @@
       <!-- 控制条 -->
       <view class="bar-control">
         <!-- 进度线条 -->
-        <view class="process-line" style="width:{{currentWidth +'rpx' }}">
-          <!-- 进度点 -->
-          <view class="process-circle">
+        <view class="process-line" style="width:{{currentWidth +'px' }}">
+          <!-- 进度小圆球 -->
+          <view class="process-circle" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" style="left: {{circlePosition + 'px'}}" >
           </view>
         </view>
       </view>

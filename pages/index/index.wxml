@@ -11,9 +11,9 @@
   </view>
   <!-- 五个图标导航区域 -->
   <view class="nav-container">
-    <view class="nav-item">
+    <view class="nav-item" bindtap="toRecommendPage">
       <text class="iconfont icon-tuijian"></text>
-      <text class="nav-text">每日推荐</text>
+      <text class="nav-text" >每日推荐</text>
     </view>
     <view class="nav-item">
       <text class="iconfont icon-music_playlist"></text>
