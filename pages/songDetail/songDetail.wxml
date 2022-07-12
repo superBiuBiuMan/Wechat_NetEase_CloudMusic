@@ -13,17 +13,31 @@
     <!-- 歌曲图片 -->
     <image class="song-pic" src="{{songInfo.al.picUrl}}"></image>
   </view>
+  <!-- 控制播放条 -->
+  <view class="process-control">
+      <text class="current">{{currentTime}}</text>
+      <!-- 控制条 -->
+      <view class="bar-control">
+        <!-- 进度线条 -->
+        <view class="process-line" style="width:{{currentWidth +'rpx' }}">
+          <!-- 进度点 -->
+          <view class="process-circle">
+          </view>
+        </view>
+      </view>
+      <view class="total">{{durationTime}}</view>
+  </view>
 
   <!-- 底部控制播放区域 -->
   <view class="musicControl">
     <!-- 播放顺序 -->
     <text class="iconfont icon-icon-"></text>
     <!-- 上一首 -->
-    <text class="iconfont icon-48shangyishou" ></text>
+    <text class="iconfont icon-48shangyishou" id="prev" bindtap="handleNextPrev"></text>
     <!-- 播放/暂停 -->
     <text class="iconfont {{isPlay?'icon-zanting': 'icon-bofang'}} big" bindtap="handleMusicPlay" ></text>
     <!-- 下一首 -->
-    <text class="iconfont icon-49xiayishou" ></text>
+    <text class="iconfont icon-49xiayishou" id="next" bindtap="handleNextPrev"></text>
     <!-- 播放列表 -->
     <text class="iconfont icon-24gf-playlistMusic4"></text>
   </view>

@@ -16,7 +16,7 @@
       <text class="title-right">多选</text>
     </view>
     <!-- 推荐歌曲数据 -->
-    <view class="song-item" wx:for="{{recommendList}}" wx:key="id" bindtap="clickToPlay" data-id="{{item.id}}">
+    <view class="song-item" wx:for="{{recommendList}}" wx:key="id" bindtap="clickToPlay" data-id="{{item.id}}" data-index="{{index}}">
       <!-- 歌曲图片 -->
       <image class="song-pic" src="{{item.al.picUrl}}" ></image>
       <!-- 歌曲信息 -->

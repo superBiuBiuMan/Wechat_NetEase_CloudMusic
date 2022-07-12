@@ -1,4 +1,5 @@
 // pages/recommendSong/recommendSong.js
+import PubSub from "pubsub-js";
 import request from "../../utils/request";
 Page({
 
@@ -12,6 +13,7 @@ Page({
     month: "",
     //推荐歌曲
     recommendList:[],
+    songIndex:"",//记录当前播放歌曲的索引
   },
  
   /**
@@ -25,6 +27,35 @@ Page({
     });
     //获取推荐列表
     this.reqRecommendList();
+    //绑定订阅
+    PubSub.subscribe("playNextOrPrev",this.playNextOrPrev)
+  },
+  //处理上一首,下一首播放的回调函数
+  playNextOrPrev(msg,switchType){
+    let {songIndex,recommendList} = this.data;
+    switch(switchType){
+      case 'prev':
+          //上一首
+          // if(songIndex==0){
+          //   songIndex = recommendList.length;
+          // }
+          // songIndex--;
+          //防数组越界
+          (songIndex === 0 ) && (songIndex = recommendList.length);
+          songIndex--;
+          break;
+      case 'next':
+          //下一首
+          songIndex++;
+          songIndex = songIndex % recommendList.length;//防数组越界
+          break;
+    }
+    //发布订阅 -- 传输歌曲id信息,告诉songDetail更新歌曲信息,
+    PubSub.publish("updateSong",recommendList[songIndex].id);
+    //更新索引
+    this.setData({
+      songIndex,
+    });
   },
   //跳转到播放界面
   clickToPlay(event){
@@ -35,6 +66,11 @@ Page({
     }
     //否者就获取绑定事件对象的id
     let id = event.currentTarget.dataset.id;
+    //更新歌曲索引
+    this.setData({
+      songIndex:event.currentTarget.dataset.index
+    });
+    //跳转到播放歌曲
     wx.navigateTo({
       url: '/pages/songDetail/songDetail?id='+id,
     });
