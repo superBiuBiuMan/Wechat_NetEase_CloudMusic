@@ -23,6 +23,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    //判断是否有cookie,没有就跳转到登录页面,否者这个页面视频数据获取不到!
+      if(!wx.getStorageSync('cookie')){
+      //没有cookie
+      wx.showToast({
+        title: '请登录后查看!',
+        icon:"error",
+      });
+      setTimeout(() => {
+          //关闭当前页面后跳转到登录界面
+          wx.reLaunch({
+            url: '/pages/login/login',
+          });
+      }, 1000);
+    }
     //获取视频标签列表
     this.reqNavList();
   },

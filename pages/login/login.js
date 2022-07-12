@@ -83,11 +83,11 @@ Page({
       wx.setStorageSync('userInfo', result.profile);
       //8.跳转到个人中心页面
       setTimeout(() => {
+       //使用其他会出现 navigateBack:fail cannot navigate back at first page
         wx.reLaunch({
           url: '/pages/personal/personal',
         });
       }, 1000);
-
     } else {
       //6.其他登录失败的,统统显示,注意要使用none,因为none可以有两行文本
       wx.showToast({

@@ -31,7 +31,6 @@
         poster="{{item.data.coverUrl}}"
         id="{{item.data.vid}}"
         wx:if="{{vid === item.data.vid}}"
-        
         bindtimeupdate="handleUpdatePlay"
         bindended="handleEndPlay"
         ></video>
