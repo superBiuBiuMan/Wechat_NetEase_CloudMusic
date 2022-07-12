@@ -1418,6 +1418,7 @@ Page({
   },
   //用户单击视频播放了
   handlePlay(event) {
+    // console.log("用户单击视频播放了");
     let vidNow = event.target.id; //获取当前单击的视频vid
     //1.如果现在单击的vid不等于上一个视频的vid,并且具有视频上下文,才进行暂停
     // vidNow !== this.vid && this.currentVideContext && this.currentVideContext.stop();
@@ -1459,6 +1460,7 @@ Page({
   },
   //记录播放进度条
   handleUpdatePlay(event) {
+    // console.log("记录播放进度条");
     let {
       videoUpdateTime
     } = this.data;

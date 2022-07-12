@@ -24,13 +24,14 @@
   bindscrolltolower="handleMore"
   refresher-triggered="{{isRefresher}}">
     <view class="video-item" wx:for="{{videoList}}" wx:key="id">
+      <!-- bindplay="handlePlay" -->
       <video class="common"
         object-fit="cover"
         src="{{item.data.urlInfo.url}}"
         poster="{{item.data.coverUrl}}"
         id="{{item.data.vid}}"
         wx:if="{{vid === item.data.vid}}"
-        bindplay="handlePlay"
+        
         bindtimeupdate="handleUpdatePlay"
         bindended="handleEndPlay"
         ></video>
