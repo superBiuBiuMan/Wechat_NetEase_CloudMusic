@@ -10,11 +10,13 @@
   </view>
   <!-- 歌曲 -->
   <scroll-view class="song-list" enable-flex scroll-y>
+    <!-- 固定操作 -->
     <view class="title">
       <text class="title-left">播放全部</text>
       <text class="title-right">多选</text>
     </view>
-    <view class="song-item" wx:for="{{recommendList}}" wx:key="id">
+    <!-- 推荐歌曲数据 -->
+    <view class="song-item" wx:for="{{recommendList}}" wx:key="id" bindtap="clickToPlay" data-id="{{item.id}}">
       <!-- 歌曲图片 -->
       <image class="song-pic" src="{{item.al.picUrl}}" ></image>
       <!-- 歌曲信息 -->
@@ -23,7 +25,7 @@
         <view class="song-author">
           {{item.ar[0].name}}
         </view>
-        <button open-type="share" class="btn">
+        <button open-type="share" class="btn" data-type="button">
             <text class="iconfont icon-gengduo-shuxiang"></text>
         </button>
       </view>

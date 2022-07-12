@@ -26,6 +26,19 @@ Page({
     //获取推荐列表
     this.reqRecommendList();
   },
+  //跳转到播放界面
+  clickToPlay(event){
+    //如果触发事件的对象为button,则不跳转
+    if(event.target.dataset.type === 'button'){
+      //说明用户单击的是分享按钮
+      return;
+    }
+    //否者就获取绑定事件对象的id
+    let id = event.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '/pages/songDetail/songDetail?id='+id,
+    });
+  },
  //请求获取推荐歌曲
  async reqRecommendList(){
   let result = await request('/recommend/songs');
