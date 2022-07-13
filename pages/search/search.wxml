@@ -1,0 +1,56 @@
+<view class="searchContainer">
+  <!-- 头部搜索区域 -->
+  <view class="header">
+    <view class="searchInput">
+      <text class="iconfont icon-wxbsousuotuiguang searchIcon"></text>
+      <input class="search-content" type="text" value="{{searchContent}}" placeholder="{{placeholderContent}}" placeholder-class="placeholder" bindinput="handleInputChange"/>
+      <text class="clear" bindtap="clearSearchContent" hidden="{{!searchContent}}">X</text>
+    </view>
+    <text class="cancel" bindtap="cancelPage">取消</text>
+  </view>
+
+  <block wx:if='{{searchList.length}}'>
+   <!-- 搜索内容展示 -->
+   <view class="showSearchContent">
+     <view class="searchContent">搜索内容: {{searchContent}}</view>
+     <!-- 搜索结果 -->
+     <view class="searchList" bindtap="handleSearchResult">
+       <view class="searchItem" wx:for="{{searchList}}" wx:key="id"  mark:id="{{item.id}}">
+         <text class="iconfont icon-wxbsousuotuiguang"></text>
+         <text class="content">{{item.name}}</text>
+       </view>
+     </view>
+   </view>
+  </block>
+
+  <block wx:else>
+    <!-- 搜索历史记录 -->
+    <view class="history" wx:if="{{historyList.length}}">
+      <view class="info">
+        <text class="title">搜索历史</text>
+        <!-- 删除 -->
+        <text class="iconfont icon-shanchu delete" bindtap="deleteSearchHistory"></text>
+      </view>
+      
+      <!-- 搜索历史全部记录 -->
+    <scroll-view class="history-allbtn" catchtap="clickHistorySearch" enable-flex scroll-y>
+        <view class="historyItem" wx:for="{{historyList}}" wx:key="index" id="{{index}}">
+          {{item}}
+         </view>
+    </scroll-view>
+      
+    </view>
+    <!-- 热搜榜 -->
+    <view class="hotContainer">
+      <view class="title">热搜榜</view>
+      <!-- 热搜列表 -->
+      <view class="hotList" bindtap="clickHotSearch">
+        <view class="hotItem" wx:for="{{hotList}}" wx:key="index" mark:index="{{index}}">
+          <text class="order">{{index + 1}}</text>
+          <text>{{item.searchWord}}</text>
+          <image class="iconImg" wx:if="{{item.iconUrl}}" src="{{item.iconUrl}}"></image>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

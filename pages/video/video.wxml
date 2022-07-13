@@ -2,7 +2,7 @@
   <!-- 头部 -->
   <view class="video-header">
     <image class="pic" src="/static/images/video/video.png"></image>
-    <view class="search">
+    <view class="search" bindtap="toSearchPage">
       我是搜索框
     </view>
     <image class="pic" src="/static/images/logo.png"></image>

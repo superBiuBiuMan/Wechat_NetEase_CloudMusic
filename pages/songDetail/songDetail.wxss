@@ -93,9 +93,15 @@
   width: 640rpx;
   height: 80rpx;
   line-height: 80rpx;
-  bottom: 200rpx;
+  bottom: 150rpx;
+}
+.process-control .current,
+.process-control .total{
+  color: #dcdcdc;
+  font-size: 25rpx;
 }
 .process-control .current{
+ 
   margin-right: 30rpx;
 }
 .process-control .total{
@@ -141,7 +147,7 @@
   position: absolute;
   bottom: 40rpx;
   left: 0;
-  border-top: 1rpx solid #fff;
+  /* border-top: 1rpx solid #fff; */
   width: 100%;
   display: flex;
 }

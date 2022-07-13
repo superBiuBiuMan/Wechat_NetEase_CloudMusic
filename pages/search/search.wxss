@@ -1,0 +1,165 @@
+/* pages/search/search.wxss */
+.searchContainer {
+  padding: 0 20rpx;
+}
+.header {
+  display: flex;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding: 10rpx 0;
+}
+
+.searchInput {
+  position: relative;
+  flex: 1;
+  background: rgba(237, 237, 237, 0.3);
+  border-radius: 30rpx;
+  /* background-color: red; */
+}
+
+.clear {
+  position: absolute;
+  right: 30rpx;
+  z-index: 10;
+  top: 0;
+  font-size: 30rpx;
+}
+.cancel {
+  width: 100rpx;
+  text-align: center;
+}
+
+/* 搜索放大镜 */
+.searchIcon {
+  position: absolute;
+  left: 15rpx;
+  font-size: 36rpx;
+}
+.searchInput .search-content {
+  margin-left: 70rpx;
+  height: 60rpx
+}
+.placeholder{
+  font-size: 28rpx;
+}
+
+
+/* 热搜榜 */
+.hotContainer {
+  margin-top: 30rpx;
+
+}
+.hotContainer .title {
+  font-size: 28rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 1rpx solid #eee;
+}
+
+.hotList {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotItem {
+  width: 50%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 26rpx;
+}
+
+.hotItem .order {
+  margin: 0 10rpx;
+}
+
+
+.hotItem .iconImg {
+  width: 35rpx;
+  height: 20rpx;
+  margin-left: 10rpx;
+}
+
+
+
+/* 搜索内容展示 */
+.searchContent {
+  color: #d43c33;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 24rpx;
+  border-bottom: 1rpx solid #d43c33;
+
+}
+
+.searchItem {
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+
+.searchItem .content {
+  flex: 1;
+  margin-left: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 26rpx;
+}
+
+
+/* 搜索历史 */
+.history {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  /* line-height:  50rpx; */
+  margin: 20rpx 0;
+  flex-direction: column;
+}
+.history .info{
+  position: relative;
+  height: 50rpx;
+  line-height: 50rpx;
+  padding: 10rpx 0;
+}
+/* 删除图标 */
+.history .info .delete {
+  position: absolute;
+  right: 15rpx;
+  text-align: center;
+  font-size: 36rpx;
+}
+/* 提示文本 */
+.history .info .title {
+  font-size: 28rpx;
+  height: 50rpx;
+}
+/* 历史搜索按钮样式 */
+.history .history-allbtn {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 170rpx;
+}
+.history .history-allbtn .historyItem {
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 26rpx;
+  box-shadow: 0 0 2rpx 2rpx rgba(180, 180, 180, 0.3);
+  margin: 10rpx;
+  padding: 0 30rpx;
+  border-radius: 20rpx; 
+}
+
+
+
+
+
+
+
+
+
+
+
