@@ -16,7 +16,7 @@
 
   * 可以去[github地址](https://github.com/Binaryify/NeteaseCloudMusicApi)下载后台,然后安装依赖包并修改**/utils/config.js**文件
 
-  * 如果是自己电脑搭建API服务器,将`host`配置项修改为如下,因为此API服务器默认使用3000端口(但需要注意的是,如果自己电脑不是公网ip,在手机上调试可能需要内网穿透)
+  * 如果是自己电脑搭建API服务器,将`host`配置项修改为如下,因为此API服务器默认使用3000端口(但需要注意的是,如果自己电脑不是公网ip,在手机上调试可能需要内网穿透 )
 
     ```js
     export default {
