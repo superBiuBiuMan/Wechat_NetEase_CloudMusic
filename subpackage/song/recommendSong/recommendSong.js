@@ -1,6 +1,6 @@
 // pages/recommendSong/recommendSong.js
 import PubSub from "pubsub-js";
-import request from "../../utils/request";
+import request from "../../../utils/request";
 Page({
 
   /**
@@ -30,7 +30,8 @@ Page({
       setTimeout(() => {
           //关闭当前页面后跳转到登录界面
           wx.reLaunch({
-            url: '/pages/login/login',
+            // url: '/pages/login/login',
+            url: '/subpackage/other/login/login',
           });
       }, 1000);
       }
@@ -87,7 +88,8 @@ Page({
     });
     //跳转到播放歌曲
     wx.navigateTo({
-      url: '/pages/songDetail/songDetail?id='+id,
+      // url: '/pages/songDetail/songDetail?id='+id,
+      url: '/subpackage/song/songDetail/songDetail?id='+id,
     });
   },
  //请求获取推荐歌曲

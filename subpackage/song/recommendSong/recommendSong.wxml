@@ -2,7 +2,7 @@
   <!-- 头部 -->
   <view class="recomment-header">
     <!-- 图片部分 -->
-    <image class="header-bg" src="/static/images/recommendSong/recommendSongBg.jpg"></image>
+    <image class="header-bg" src="../../images/recommendSong/recommendSongBg.jpg"></image>
     <!-- 日期部分 -->
     <view class="date-container">
       <view class="date">今天是{{month}}月{{day}}日</view>

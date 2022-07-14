@@ -23,7 +23,8 @@ Page({
   //跳转到每日推荐
   toRecommendPage(){
     wx.navigateTo({
-      url: '/pages/recommendSong/recommendSong',
+      // url: '/pages/recommendSong/recommendSong',
+      url: '/subpackage/song/recommendSong/recommendSong',
     })
   },
   // 初始化调用

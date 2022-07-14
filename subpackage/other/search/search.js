@@ -1,4 +1,4 @@
-import request from '../../utils/request'
+import request from '../../../utils/request'
 let isSend = false; // 函数节流使用
 Page({
 
@@ -48,7 +48,8 @@ Page({
     let id = event.mark.id;
     //跳转到歌曲详细
     wx.navigateTo({
-      url: '/pages/songDetail/songDetail?id='+id,
+      // url: '/pages/songDetail/songDetail?id='+id,
+      url: `/subpackage/song/songDetail/songDetail?id=${id}&search=1`,
     })
   },
 

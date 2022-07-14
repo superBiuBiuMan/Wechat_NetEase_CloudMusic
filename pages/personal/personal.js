@@ -52,8 +52,10 @@ Page({
     if (wx.getStorageSync('userInfo')) {
       return;
     }
+    //跳转到登录界面
     wx.navigateTo({
-      url: '/pages/login/login',
+      // url: '/pages/login/login',
+      url: '/subpackage/other/login/login',
     })
   },
   /* 手指按下事件 */

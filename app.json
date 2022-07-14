@@ -1,12 +1,26 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/songDetail/songDetail",
     "pages/video/video",
-    "pages/search/search",
-    "pages/recommendSong/recommendSong",
-    "pages/personal/personal",
-    "pages/login/login"
+    "pages/personal/personal"
+  ],
+  "subpackages": [
+    {
+      "root": "subpackage/song",
+      "name":"歌曲相关",
+      "pages": [
+        "recommendSong/recommendSong",
+        "songDetail/songDetail"
+      ]
+    },
+    {
+      "root": "subpackage/other",
+      "name": "其他",
+      "pages": [
+        "login/login",
+        "search/search"
+      ]
+    }
   ],
   "window": {
     "navigationBarBackgroundColor": "#d8533d",

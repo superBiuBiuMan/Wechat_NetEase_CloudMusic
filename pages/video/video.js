@@ -33,7 +33,8 @@ Page({
     setTimeout(() => {
         //关闭当前页面后跳转到登录界面
         wx.reLaunch({
-          url: '/pages/login/login',
+          // url: '/pages/login/login',
+          url: '/subpackage/other/login/login',
         });
     }, 1000);
     }
@@ -43,7 +44,8 @@ Page({
   //跳转到搜索界面
   toSearchPage(){
     wx.navigateTo({
-      url: '/pages/search/search',
+      // url: '/pages/search/search',
+      url:"/subpackage/other/search/search"
     });
   },
 

@@ -1,7 +1,7 @@
 // pages/songDetail/songDetail.js
 import PubSub from "pubsub-js";
 import moment from "moment";
-import request from "../../utils/request";
+import request from "../../../utils/request";
 
 Page({
 
@@ -33,14 +33,30 @@ Page({
    */
   onLoad(options) {
     let id = options.id;//获取歌曲id信息
+    let fromSearch = options.search;//1代表来自搜索
     //保存id信息
     this.setData({
       musicId:id,
     });
-    //请求歌曲详细信息
-    this.reqSongDetail(id);
     //创建音乐相关实例
     this.createMusicManager();
+    if(fromSearch === '1'){
+      //来自搜索框
+      // 停止音乐
+      this.musicManager.stop();
+      //初始化
+      this.setData({
+      currentTime:"00:00",//当前播放的时间
+      durationTime:"00:00",//总播放时间
+      currentWidth:0,//当前进度条的长度
+      startX:0,
+      endX:0,
+      //计算后的小圆点坐标
+      circlePosition:0,
+    });
+    }
+    //请求歌曲详细信息
+    this.reqSongDetail(id);
     //添加订阅,控制歌曲信息
     PubSub.subscribe("updateSong",this.updateSong);
     //获取查询对象,为了查询节点信息的对象
@@ -210,6 +226,7 @@ Page({
       PubSub.publish("playNextOrPrev",'next');
       //初始化
       this.setData({
+        isPlay:false,
         currentTime:"00:00",//当前播放的时间
         durationTime:"00:00",//总播放时间
         currentWidth:0,//当前进度条的长度
@@ -217,7 +234,7 @@ Page({
         endX:0,
         //计算后的小圆点坐标
         circlePosition:0,
-      })
+      });
     });
   },
   //发送请求获取指定id歌曲的详细信息并设置窗口标题

@@ -5,11 +5,11 @@
   <!-- 底座 -->
   <view class="circle-needle"></view>
   <!-- 唱针 -->
-  <image class="needle {{isPlay?'needle-circle':''}}" src="/static/images/song/needle.png"></image>
+  <image class="needle {{isPlay?'needle-circle':''}}" src="../../images/songDetail/needle.png"></image>
   <!-- 唱片和歌曲头像 -->
   <view class="disc-wrapper {{isPlay?'disc-circle':''}}">
     <!-- 唱片  -->
-    <image class="disc" src="/static/images/song/disc.png"></image>
+    <image class="disc" src="../../images/songDetail/disc.png"></image>
     <!-- 歌曲图片 -->
     <image class="song-pic" src="{{songInfo.al.picUrl}}"></image>
   </view>

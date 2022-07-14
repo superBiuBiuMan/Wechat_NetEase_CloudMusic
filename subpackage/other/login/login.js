@@ -1,7 +1,7 @@
 import {
   hexMD5
-} from "../../utils/md5"; //MD5对密码进行加密
-import request from "../../utils/request";
+} from "../../../utils/md5"; //MD5对密码进行加密
+import request from "../../../utils/request";
 // pages/login/login.js
 Page({
 
