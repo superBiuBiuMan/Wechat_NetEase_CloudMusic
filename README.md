@@ -9,10 +9,6 @@
   * github地址: https://github.com/superBiuBiuMan/Wechat_NetEase_CloudMusic
   * gitee地址: https://gitee.com/superBiuBiu/Wechat_NetEase_CloudMusic 
 
-* 网易云NodeJs服务器地址
-
-  * http://cloudmusic.dreamlove.top:3000/
-
 * 更改自己的API地址
 
   * 虽然目前我这服务器的可以用,但是服务器会有过期的一天
